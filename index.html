@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneaker Inventory</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <h1>SNEAKER INVENTORY</h1>
-        <input type="text" class="search-bar" id="search-input" placeholder="Pesquisar pelo nome...">
-    </div>
+    <h1>Add New Sneaker</h1>
+    <form id="sneakerForm">
+        <label for="name">Sneaker Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="price">Price:</label><br>
+        <input type="text" id="price" name="price"><br>
+        <label for="size">Size:</label><br>
+        <input type="text" id="size" name="size"><br><br>
+        <input type="button" value="Add Sneaker" onclick="addSneaker()">
+    </form>
 
-    <div class="filter-buttons">
-        <button class="filter-button" onclick="filterCategory('all')">≡ Padrão</button>
-        <button class="filter-button" onclick="filterCategory('new')">↓↑ Menor-Maior Preço</button>
-        <button class="filter-button" onclick="filterCategory('sale')">↑↓ Maior-Menor Preço</button>
-        <button class="filter-button" onclick="filterCategory('size')">📏 Filtrar por Tamanho</button>
-    </div>
-
-    <div class="product-grid" id="product-grid">
-        <!-- Products will be displayed here -->
-    </div>
-
-    <script src="script.js"></script>
+    <script>
+        function addSneaker() {
+            // Functionality to handle adding sneakers will go here
+            alert('Sneaker added to inventory!');
+        }
+    </script>
 </body>
 </html>
