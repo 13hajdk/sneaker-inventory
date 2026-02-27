@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Instagram-Style Sneaker Inventory</h1>
-        <input type="text" placeholder="Search sneakers..." id="search-bar">
-    </header>
-    <div class="filters">
-        <button>All</button>
-        <button>New Arrivals</button>
-        <button>Sale</button>
+    <div class="header">
+        <h1>SNEAKER INVENTORY</h1>
+        <input type="text" class="search-bar" id="search-input" placeholder="Pesquisar pelo nome...">
     </div>
-    <div class="product-cards">
-        <div class="card">
-            <img src="sneaker1.jpg" alt="Sneaker 1">
-            <h2>Nike Air Max</h2>
-            <p>$120</p>
-        </div>
-        <div class="card">
-            <img src="sneaker2.jpg" alt="Sneaker 2">
-            <h2>Adidas Ultraboost</h2>
-            <p>$180</p>
-        </div>
-        <!-- More product cards here -->
+
+    <div class="filter-buttons">
+        <button class="filter-button" onclick="filterCategory('all')">≡ Padrão</button>
+        <button class="filter-button" onclick="filterCategory('new')">↓↑ Menor-Maior Preço</button>
+        <button class="filter-button" onclick="filterCategory('sale')">↑↓ Maior-Menor Preço</button>
+        <button class="filter-button" onclick="filterCategory('size')">📏 Filtrar por Tamanho</button>
     </div>
-    <footer>
-        <p>&copy; 2026 Sneaker Store</p>
-    </footer>
+
+    <div class="product-grid" id="product-grid">
+        <!-- Products will be displayed here -->
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
