@@ -4,65 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneaker Inventory</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .search-bar { margin: 20px; }
-        .filter { margin: 20px; }
-        .product-grid { display: flex; flex-wrap: wrap; gap: 20px; }
-        .product { border: 1px solid #ccc; border-radius: 5px; padding: 10px; width: 200px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Sneaker Inventory</h1>
-    <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Search for sneakers..." />
-        <button onclick="searchSneakers()">Search</button>
+    <header>
+        <h1>Instagram-Style Sneaker Inventory</h1>
+        <input type="text" placeholder="Search sneakers..." id="search-bar">
+    </header>
+    <div class="filters">
+        <button>All</button>
+        <button>New Arrivals</button>
+        <button>Sale</button>
     </div>
-    <div class="filter">
-        <label for="sort">Sort by:</label>
-        <select id="sort" onchange="sortSneakers()">
-            <option value="name">Name</option>
-            <option value="price">Price</option>
-        </select>
+    <div class="product-cards">
+        <div class="card">
+            <img src="sneaker1.jpg" alt="Sneaker 1">
+            <h2>Nike Air Max</h2>
+            <p>$120</p>
+        </div>
+        <div class="card">
+            <img src="sneaker2.jpg" alt="Sneaker 2">
+            <h2>Adidas Ultraboost</h2>
+            <p>$180</p>
+        </div>
+        <!-- More product cards here -->
     </div>
-    <div class="product-grid" id="product-grid">
-        <!-- Product items will be displayed here -->
-    </div>
-    <script>
-        const sneakers = [
-            { name: 'Air Force 1', price: 90 },
-            { name: 'Nike Dunk', price: 100 },
-            { name: 'Adidas Yeezy', price: 220 },
-            { name: 'Puma RS-X', price: 110 }
-        ];
-
-        function displaySneakers(filteredSneakers) {
-            const grid = document.getElementById('product-grid');
-            grid.innerHTML = '';
-            filteredSneakers.forEach(sneaker => {
-                const product = document.createElement('div');
-                product.className = 'product';
-                product.innerHTML = `<h3>${sneaker.name}</h3><p>Price: $${sneaker.price}</p>`;
-                grid.appendChild(product);
-            });
-        }
-
-        function searchSneakers() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const filteredSneakers = sneakers.filter(sneaker => sneaker.name.toLowerCase().includes(searchTerm));
-            displaySneakers(filteredSneakers);
-        }
-
-        function sortSneakers() {
-            const sortBy = document.getElementById('sort').value;
-            const sortedSneakers = [...sneakers].sort((a, b) => {
-                if (sortBy === 'name') return a.name.localeCompare(b.name);
-                return a.price - b.price;
-            });
-            displaySneakers(sortedSneakers);
-        }
-
-        displaySneakers(sneakers); // Initial display
-    </script>
+    <footer>
+        <p>&copy; 2026 Sneaker Store</p>
+    </footer>
 </body>
 </html>
