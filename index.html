@@ -4,24 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneaker Inventory</title>
+    <style>
+        .sneaker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .sneaker-item {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Add New Sneaker</h1>
-    <form id="sneakerForm">
-        <label for="name">Sneaker Name:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <label for="price">Price:</label><br>
-        <input type="text" id="price" name="price"><br>
-        <label for="size">Size:</label><br>
-        <input type="text" id="size" name="size"><br><br>
-        <input type="button" value="Add Sneaker" onclick="addSneaker()">
+    <h1>Sneaker Inventory</h1>
+    <form id="sneaker-form">
+        <input type="text" placeholder="Sneaker Name" required />
+        <input type="number" placeholder="Price" required />
+        <input type="text" placeholder="Size" required />
+        <input type="url" placeholder="Image URL" required />
+        <button type="submit">Add Sneaker</button>
     </form>
+    <div class="sneaker-grid" id="sneaker-grid">
+        <!-- Sneakers will be displayed here -->
+    </div>
 
     <script>
-        function addSneaker() {
-            // Functionality to handle adding sneakers will go here
-            alert('Sneaker added to inventory!');
-        }
+        document.getElementById('sneaker-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this[0].value;
+            const price = this[1].value;
+            const size = this[2].value;
+            const imageUrl = this[3].value;
+
+            const sneakerGrid = document.getElementById('sneaker-grid');
+            const sneakerItem = document.createElement('div');
+            sneakerItem.className = 'sneaker-item';
+            sneakerItem.innerHTML = `
+                <img src="${imageUrl}" alt="${name}" style="width: 100%; height: auto;" />
+                <h2>${name}</h2>
+                <p>Price: $${price}</p>
+                <p>Size: ${size}</p>
+            `;
+            sneakerGrid.appendChild(sneakerItem);
+
+            this.reset();
+        });
     </script>
 </body>
 </html>
